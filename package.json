@@ -1,0 +1,57 @@
+{
+  "name": "inworld-sava-web",
+  "version": "0.1.0",
+  "description": "Inworld SAVA voice activity and end-of-turn detection in the browser",
+  "license": "ISC",
+  "author": "Vittorio Palmisano",
+  "type": "module",
+  "url": "https://vpalmisano.github.io/inworld-sava-web",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vpalmisano/inworld-sava-web.git"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./worklet": "./dist/audio-worklet.js",
+    "./worker": "./dist/inference-worker.js"
+  },
+  "files": [
+    "dist/*.js",
+    "dist/*.d.ts",
+    "dist/*.js.map",
+    "dist/ort.webgpu.min.mjs",
+    "dist/ort-wasm-simd-threaded.asyncify.mjs",
+    "dist/ort-wasm-simd-threaded.asyncify.wasm",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json --emitDeclarationOnly && vite build",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "demo": "npm run build && vite --host 0.0.0.0",
+    "lint": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "onnxruntime-web": "^1.31.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
+    "@eslint/js": "^10.0.1",
+    "@stylistic/eslint-plugin": "^6.0.1",
+    "eslint": "^10.15.0",
+    "eslint-config-defaults": "^9.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.14.0",
+    "prettier": "^3.10.1",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.73.0",
+    "vite": "^8.3.8"
+  }
+}

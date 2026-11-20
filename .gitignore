@@ -1,0 +1,7 @@
+dist
+.venv
+.pytest_cache
+models
+__pycache__
+node_modules
+_site
